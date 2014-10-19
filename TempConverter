@@ -1,0 +1,42 @@
+# Temp converter program
+def start():
+	print "Do you want to convert Celsius to Fahrenheit (a) or Fahrenheit to Celsius (b)?"
+	choice = raw_input("> ")
+	if choice == "a":
+		celtofahr()
+	elif choice == "b":
+		fahrtocel()
+	else:
+		print "Try again."
+		start()
+	
+def celtofahr():
+	print "What is the temperature in Celsius?"
+	tempcelsius = float(raw_input("> "))
+	tempfahr = (tempcelsius*9/5) + 32
+	#return tempfahr
+	tempfahren = round(tempfahr, 2) # how to format a float value to 2 decimals
+	print "%r Celsius is equal to %r Fahrenheit." % (tempcelsius, tempfahren)
+	tryagain()
+
+def fahrtocel():
+	print "What is the temperature in Fahrenheit?"
+	tempfahrenheit = float(raw_input("> "))
+	tempcels = (tempfahrenheit - 32)*5/9
+	#return tempcelsius
+	tempcelsius = round(tempcels, 2)
+	print "%r Fahrenheit is equal to %r in Celsius." % (tempfahrenheit, tempcelsius)
+	tryagain()
+        
+def tryagain():
+	print "Do you want to do another calculation? 'y' or 'n'."
+	choice = raw_input("> ")
+	if choice == "y":
+		start()
+	elif choice == "n":
+		quit()
+	else:
+		print "I didn't understand that, so...goodbye!"
+		quit()
+	
+start()
